@@ -1,15 +1,17 @@
-
 import React, { useState } from 'react';
 import ProductList from './ProductList';
 import './App.css';
 import AboutUs from './AboutUs';
 
 function App() {
-  
   const [showProductList, setShowProductList] = useState(false);
 
   const handleGetStartedClick = () => {
     setShowProductList(true);
+  };
+
+  const handleReturnClick= () => {
+    setShowProductList(false); 
   };
 
   return (
@@ -30,10 +32,9 @@ function App() {
           <AboutUs/>
           </div>
           </div>
-
       </div>
       <div className={`product-list-container ${showProductList ? 'visible' : ''}`}>
-        <ProductList />
+        <ProductList toLanding={handleReturnClick}/>
       </div>
     </div>
   );
